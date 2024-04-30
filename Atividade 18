@@ -1,0 +1,44 @@
+#include <stdio.h>
+
+int main(){
+float morango, maca, valortotal;
+
+printf ("Desejas quantos quilos de morango?: ");
+scanf ("%f", &morango);
+printf ("Desejas quantos quilos de maça?: ");
+scanf ("%f", &maca);
+
+if (morango >= 5)
+{
+    morango *= 2.20;
+    printf ("\n Valor do morango com desconto %.2f reais", morango);
+}
+else
+{
+    morango *= 2.50;
+    printf ("\n Valor do morango sem desconto %.2f reais", morango);
+}
+if (maca >= 5)
+{
+    maca *= 1.50;
+    printf ("\n Valor da maça com desconto %.2f reais", maca);
+}
+else
+{
+    maca *= 1.80;
+    printf ("\n Valor maça sem desconto %.2f reais", maca);
+}
+valortotal = morango + maca;
+if (valortotal > 25)
+{
+    valortotal -= valortotal *0.10;
+    printf ("\n Valor total com desconto %.2f", valortotal);
+}
+else
+{
+    printf ("\n Valor total sem desconto %.2f", valortotal);
+}
+
+
+return 0;
+}
