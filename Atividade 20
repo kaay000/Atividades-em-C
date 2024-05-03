@@ -1,0 +1,45 @@
+#include <stdio.h>
+
+int main() {
+    int numero, centenas, dezenas, unidades;
+
+    printf("Digite um número inteiro menor que 1000: ");
+    scanf("%d", &numero);
+
+    if(numero >= 1000 || numero < 0) {
+        printf("Número inválido. Por favor, digite um número entre 0 e 999.\n");
+        return 1;
+    }
+
+    centenas = numero / 100;
+    dezenas = (numero % 100) / 10;
+    unidades = numero % 10;
+
+    printf("%d = ", numero);
+
+    if(centenas > 0) {
+        printf("%d centena%s", centenas, centenas > 1 ? "s" : "");
+    }
+
+    if(dezenas > 0) {
+        if(centenas > 0) {
+            if(unidades > 0) {
+                printf(", ");
+            } else {
+                printf(" e ");
+            }
+        }
+        printf("%d dezena%s", dezenas, dezenas > 1 ? "s" : "");
+    }
+
+    if(unidades > 0) {
+        if(centenas > 0 || dezenas > 0) {
+            printf(" e ");
+        }
+        printf("%d unidade%s", unidades, unidades > 1 ? "s" : "");
+    }
+
+    printf(".\n");
+
+    return 0;
+}
