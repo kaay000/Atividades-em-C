@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main() {
+    int tipo;
+    float quantidade, preco, desconto, total;
+    char cartao;
+
+    printf("Hipermercado Tabajara - Promoção de Carnes\n");
+    printf("Escolha o tipo de carne:\n");
+    printf("1 - File Duplo\n");
+    printf("2 - Alcatra\n");
+    printf("3 - Picanha\n");
+    scanf("%d", &tipo);
+
+    printf("Informe a quantidade de carne (em Kg):\n");
+    scanf("%f", &quantidade);
+
+    printf("Vai pagar com cartão Tabajara? (s/n):\n");
+    scanf(" %c", &cartao);
+
+    switch(tipo) {
+        case 1:
+            preco = (quantidade <= 5) ? 4.90 : 5.80;
+            break;
+        case 2:
+            preco = (quantidade <= 5) ? 5.90 : 6.80;
+            break;
+        case 3:
+            preco = (quantidade <= 5) ? 6.90 : 7.80;
+            break;
+        default:
+            printf("Tipo de carne inválido.\n");
+            return 1;
+    }
+
+    total = quantidade * preco;
+    desconto = (cartao == 's' || cartao == 'S') ? total * 0.05 : 0;
+    total -= desconto;
+
+    printf("\nCupom Fiscal\n");
+    printf("Tipo de carne: %d\n", tipo);
+    printf("Quantidade: %.2f Kg\n", quantidade);
+    printf("Preço total: R$ %.2f\n", quantidade * preco);
+    printf("Tipo de pagamento: %s\n", (cartao == 's' || cartao == 'S') ? "Cartão Tabajara" : "Outro");
+    printf("Valor do desconto: R$ %.2f\n", desconto);
+    printf("Valor a pagar: R$ %.2f\n", total);
+
+    return 0;
+}
